@@ -31,7 +31,18 @@ int main() {
     std::iota(vec.begin(), vec.end(), -2);
     
     auto printVec = [vec](){
-                    std::copy(vec.begin(), vec.end(),std::ostream_iterator<int>(std::cout," "));};
+                    std::copy(vec.begin(), vec.end(),std::ostream_iterator<int>(std::cout," "));
+                    std::cout << '\n';};
+
     printVec();
+    //4.6 Utowrzy lambde, przyjmie int w swoim argumencie i go wyswietli
+    auto printInt = [](int numToPrint){std::cout << numToPrint << ' '; std::cout << '\n';};
+    printInt(10);
+    printInt(178);
+
+    //4.7 wykorzystaj lambde z punktu wyzej a algorytmie for_each()
+    std::cout << "Print with using for_each()\n";
+    std::for_each(vec.begin(), vec.end(),printInt);
+
     return 0;
 }
