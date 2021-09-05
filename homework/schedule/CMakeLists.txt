@@ -16,4 +16,4 @@ target_compile_options(${PROJECT_NAME}-ut PRIVATE -Wall -Wextra -Werror -Wpedant
 target_compile_options(${PROJECT_NAME}-ut-bonus PRIVATE -Wall -Wextra -Werror -Wpedantic)
 
 enable_testing()
-add_test(NAME schedule-tests COMMAND ${PROJECT_NAME}-ut)
+add_test(NAME schedule-tests COMMAND ${PROJECT_NAME}-ut-bonus)
