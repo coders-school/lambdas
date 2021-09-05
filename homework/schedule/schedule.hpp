@@ -2,28 +2,14 @@
 #include <functional>
 #include <string>
 #include <thread>
+#include <type_traits>
 
-void schedule(std::function<void()> func, std::chrono::seconds dur)
+
+template <typename T, typename... T2>
+void schedule(T func, std::chrono::seconds dur, T2... Args)
 {
-std::this_thread::sleep_for(dur);
-func();
-}
-
-void schedule(std::function<void(int)> func, std::chrono::seconds dur, int a)
-{
-std::this_thread::sleep_for(dur);
-func(a);
-}
-
-void schedule(std::function<void(std::string, double)> func, std::chrono::seconds dur,std::string s, double d)
-{
-std::this_thread::sleep_for(dur);
-func(s,d);
-
+    std::this_thread::sleep_for(dur);
+    if (std::is_function<decltype(func)>::value) {func(Args...);};
 }
 
 
-void schedule()
-{
-
-}
