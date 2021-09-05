@@ -4,7 +4,6 @@
 #include <thread>
 
 
-
 template<typename T,typename U, typename...Types>
 void schedule(T func, U duraton, Types... args)
 {
