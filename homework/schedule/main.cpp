@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <thread>
 #include "schedule.hpp"
 
 // Napisz funkcję schedule(), która przyjmuje dwa parametry:
@@ -19,8 +20,8 @@ int main() {
 
     auto start = std::chrono::system_clock::now();
     schedule([]{ std::cout << "I'm an empty function\n"; }, 1s);
-    schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, 2s, 42);
-    schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, 0s, "text", 42.5);
+    // schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, 2s, 42);
+    // schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, 0s, "text", 42.5);
     auto stop = std::chrono::system_clock::now();
 
     std::chrono::duration<double> diff = stop - start;
