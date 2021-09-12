@@ -1,8 +1,8 @@
 #include <iostream>
 
 auto getIndexGenerator() {
-    int value = 0;
-    auto lambda = [=] () mutable {
+    //int value = 0;
+    auto lambda = [value = 0] () mutable {
         return value++;
     };
     return lambda;
