@@ -1,7 +1,6 @@
 #pragma once
 #include <chrono>
 #include <functional>
-#include <iostream>
 #include <thread>
 
 void schedule(std::function<void()> func, std::chrono::seconds);
