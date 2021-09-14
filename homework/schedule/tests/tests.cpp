@@ -1,6 +1,5 @@
 #include "catch_amalgamated.hpp"
 #include "schedule.hpp"
-#include <chrono>
 #include <string>
 
 using namespace std::chrono_literals;
