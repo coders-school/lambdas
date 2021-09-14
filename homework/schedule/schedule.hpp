@@ -2,7 +2,15 @@
 #include <chrono>
 #include <string>
 #include <functional>
+#include <thread>
 
-void schedule( std::function<void()> func, const std::chrono::duration<int, std::ratio<1L, 1L>> duration);
-void schedule( std::function<void(int a)> func, const std::chrono::duration<int, std::ratio<1L, 1L>> duration, int&);
-void schedule( std::function<void(std::string s, double d)> func, const std::chrono::duration<int, std::ratio<1L, 1L>> duration, std::string & s, double & d);
+
+template<typename T, typename ... Args>
+void schedule (T func, const std::chrono::seconds(duration), Args... args) {
+    std::this_thread::sleep_for(duration);
+    func(args...);
+}
+
+// void schedule( std::function<void()> func, const std::chrono::seconds(duration));
+// void schedule( std::function<void(int a)> func, const std::chrono::seconds(duration), int);
+// void schedule( std::function<void(std::string s, double d)> func, const std::chrono::seconds(duration), std::string s, double d);
