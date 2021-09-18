@@ -2,7 +2,7 @@
 #include "schedule.hpp"
 #include <chrono>
 #include <string>
-/*
+
 using namespace std::chrono_literals;
 
 template <typename F, typename ... Args>
@@ -54,4 +54,4 @@ SCENARIO("Testing schedule function with any function", "[schedule][template][va
             }
         }
     }
-}*/
+}
