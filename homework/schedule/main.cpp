@@ -20,22 +20,22 @@ int main() {
     std::cout << "-- start --\n";
     //------------
 
-    schedule([]{ std::cout << "I'm an empty function\n"; }, std::chrono::seconds(2));
-    schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, std::chrono::seconds(2), 42);
-    schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, std::chrono::seconds(2), "text", 42.5);
+    // schedule([]{ std::cout << "I'm an empty function\n"; }, std::chrono::seconds(2));
+    // schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, std::chrono::seconds(2), 42);
+    // schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, std::chrono::seconds(2), "text", 42.5);
 
     //------------
 
-    // using namespace std::chrono_literals;
+    using namespace std::chrono_literals;
 
-    // auto start = std::chrono::system_clock::now();
-    // schedule([]{ std::cout << "I'm an empty function\n"; }, 1s);
-    // schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, 2s, 42);
-    // schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, 0s, "text", 42.5);
-    // auto stop = std::chrono::system_clock::now();
+    auto start = std::chrono::system_clock::now();
+    schedule([]{ std::cout << "I'm an empty function\n"; }, 1s);
+    schedule([](int a){ std::cout << "Param int a = " << a << '\n'; }, 2s, 42);
+    schedule([](std::string s, double d){ std::cout << "Params: string s = " << s << ", double d = " << d << '\n'; }, 0s, "text", 42.5);
+    auto stop = std::chrono::system_clock::now();
 
-    // std::chrono::duration<double> diff = stop - start;
-    // std::cout << "Everything took " << std::fixed << std::setprecision(6) << diff.count() << " seconds\n";
+    std::chrono::duration<double> diff = stop - start;
+    std::cout << "Everything took " << std::fixed << std::setprecision(6) << diff.count() << " seconds\n";
 
     return 0;
 }
