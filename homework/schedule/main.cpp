@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "schedule.hpp"
+#include <thread>
+#include <functional>
 
 // Napisz funkcję schedule(), która przyjmuje dwa parametry:
 //   Pierwszy parametr to dowolną funkcję func, która nie przyjmuje żadnego argumentu i nic nie zwraca
@@ -13,6 +15,23 @@
 
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 // Uwaga, to trudne zadanie na tym etapie kursu!
+void schedule(std::function<void()> func, int duration)
+{
+    std::this_thread::sleep_for(std::chrono::seconds(duration));
+    func();
+}
+
+void schedule(std::function<void(int a)> func, int duration, int arg)
+{
+    std::this_thread::sleep_for(std::chrono::seconds(duration));
+    func(arg);
+}
+
+void schedule(std::function<void(std::string s, double d)> func, int duration, std::string text, double arg)
+{
+    std::this_thread::sleep_for(std::chrono::seconds(duration));
+    func(text, arg);
+}
 
 int main() {
     using namespace std::chrono_literals;
