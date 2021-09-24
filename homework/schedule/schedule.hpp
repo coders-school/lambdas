@@ -1,25 +1,34 @@
 #pragma once
 #include <chrono>
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <thread>
 #include <functional>
+#include <thread>
+#include <string>
 
-void schedule(std::function<void()> func, int duration)
+template<typename FUNCTION, typename DURATION, typename... ARGS>
+void schedule(FUNCTION function, DURATION time, ARGS&&... args) {
+    std::this_thread::sleep_for(time);
+    function(std::forward<ARGS>(args)...);
+}
+
+/* overloaded functions */
+void schedule(std::function<void()> func,
+              std::chrono::seconds secs)
 {
-    std::this_thread::sleep_for(std::chrono::seconds(duration));
+    std::this_thread::sleep_for(secs);
     func();
 }
-
-void schedule(std::function<void(int a)> func, int duration, int arg)
+void schedule(std::function<void(int)> func,
+              const std::chrono::seconds& secs,
+              int value)
 {
-    std::this_thread::sleep_for(std::chrono::seconds(duration));
-    func(arg);
+    std::this_thread::sleep_for(secs);
+    func(value);
 }
-
-void schedule(std::function<void(std::string s, double d)> func, int duration, std::string text, double arg)
+void schedule(std::function<void(std::string, double)> func,
+              const std::chrono::seconds& secs,
+              const std::string& str,
+              double value)
 {
-    std::this_thread::sleep_for(std::chrono::seconds(duration));
-    func(text, arg);
+    std::this_thread::sleep_for(secs);
+    func(str, value);
 }
