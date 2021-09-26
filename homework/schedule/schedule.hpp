@@ -27,3 +27,9 @@ void schedule(std::function<void(std::string, double)> func, std::chrono::second
     //sleep_until(system_clock::now() + seconds(1));
     func(text,number);
 }
+
+template<typename Function, typename Duration, typename... Argument>
+auto schedule(Function Func , Duration duration, Argument ...arg){
+    std::this_thread::sleep_for(duration);
+    Func(arg...);
+}
