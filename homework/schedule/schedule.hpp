@@ -16,7 +16,7 @@ void schedule(std::function<void(int)> f, std::chrono::duration<double> duration
     f(number);  
 }
 
-void schedule(std::function<void(std::string, double)> f, std::chrono::duration<double> duration, const std::string& text, int number)
+void schedule(std::function<void(std::string, double)> f, std::chrono::duration<double> duration, const std::string& text, double number)
 {
     std::this_thread::sleep_for(duration);
     f(text, number);  
