@@ -38,5 +38,5 @@ template <typename Func, typename... Args>
 void schedule(Func function, std::chrono::seconds seconds, Args... arguments)
 {   
     std::this_thread::sleep_for(seconds);
-    function(arguments ...);
+    function(std::forward<Args>(arguments) ...);
 }
