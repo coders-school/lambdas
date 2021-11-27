@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 #include <thread>
-// void schedule(std::function<void()> blankFunc, std::chrono::seconds seconds)
+// void schedule(std::function<void()> blankFunc, const std::chrono::seconds seconds)
 // {   
 //     const auto demanded_time = seconds.count();
 //     const auto clock = std::chrono::system_clock::now();
@@ -12,7 +12,7 @@
 //     while(duration_time() < demanded_time){}
 //     blankFunc();
 // }
-// void schedule(std::function<void(int i)> Func, std::chrono::seconds seconds, int i)
+// void schedule(std::function<void(const int i)> Func, const std::chrono::seconds seconds, const int i)
 // {   
 //     const auto demanded_time = seconds.count();
 //     const auto clock = std::chrono::system_clock::now();
@@ -23,7 +23,7 @@
 //     while(duration_time() < demanded_time){}
 //     Func(i);
 // }
-// void schedule(std::function<void(std::string s, double d)> Func, std::chrono::seconds seconds, std::string s, double d)
+// void schedule(std::function<void(const std::string s, const double d)> Func, const std::chrono::seconds seconds, const std::string s, const double d)
 // {   
 //     const auto demanded_time = seconds.count();
 //     const auto clock = std::chrono::system_clock::now();
