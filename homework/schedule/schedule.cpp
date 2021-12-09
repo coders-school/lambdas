@@ -1,4 +1,3 @@
-#pragma once
 #include "schedule.hpp"
 #include <chrono>
 #include <functional>
