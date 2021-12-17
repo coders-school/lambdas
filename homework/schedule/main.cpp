@@ -14,6 +14,7 @@
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 // Uwaga, to trudne zadanie na tym etapie kursu!
 
+
 int main() {
     using namespace std::chrono_literals;
 
@@ -28,3 +29,6 @@ int main() {
 
     return 0;
 }
+
+
+
