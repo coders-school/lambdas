@@ -28,7 +28,7 @@ SCENARIO("Testing schedule function with any function", "[schedule][template][va
         auto func8 = [&](char, char, std::vector<int>) { i = 8; return true; };
         constexpr auto duration = 0s;
 
-        WHEN("schedule takes each function, duration and params") {
+       WHEN("schedule takes each function, duration and params") {
             auto start = std::chrono::system_clock::now();
             schedule(func1, duration, "notImportant", "empty");
             CHECK(i == 1);
