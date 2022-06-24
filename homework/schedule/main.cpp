@@ -14,6 +14,7 @@
 // Bonus: zaimplementuj schedule jako funkcję szablonową. Wystarczy wtedy tylko jedna jej wersja, bez żadnych przeciążeń.
 // Uwaga, to trudne zadanie na tym etapie kursu!
 
+
 int main() {
     using namespace std::chrono_literals;
 
@@ -24,7 +25,7 @@ int main() {
     auto stop = std::chrono::system_clock::now();
 
     std::chrono::duration<double> diff = stop - start;
-    std::cout << "Everything took " << std::fixed << std::setprecision(6) << diff.count() << " seconds\n";
+    std::cout << "\nEverything took " << std::fixed << std::setprecision(6) << diff.count() << " seconds\n";
 
     return 0;
 }
