@@ -1,6 +1,7 @@
 #include <chrono>
 #include <functional>
 #include <string>
+#include <thread>
 // void schedule(std::function<void()>fptr, std::chrono::seconds duration){
 
 //     auto start = std::chrono::system_clock::now();
@@ -34,9 +35,10 @@
 
 template <typename Fun, typename... Args>
 void schedule(Fun fptr, std::chrono::seconds duration, Args... args) {
-    auto start = std::chrono::system_clock::now();
-    while (std::chrono::duration_cast<std::chrono::seconds>(
-               std::chrono::system_clock::now() - start) <= duration) {
-    }
+    // auto start = std::chrono::system_clock::now();
+    // while (std::chrono::duration_cast<std::chrono::seconds>(
+    //            std::chrono::system_clock::now() - start) <= duration) {
+    // }
+    std::this_thread::sleep_for(std::chrono::seconds(duration));
     fptr(args...);
 }
