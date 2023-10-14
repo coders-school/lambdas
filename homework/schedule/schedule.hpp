@@ -1,5 +1,8 @@
 #pragma once
 #include <chrono>
+#include <functional>
+#include <string>
 
-template <typename FUNC_PTR_T, typename... Targs>
-void schedule(FUNC_PTR_T func, const std::chrono::seconds duration, Targs... args);
+void schedule(std::function<void(void)> func, const std::chrono::seconds duration);
+void schedule(std::function<void(int)> func, const std::chrono::seconds duration, int func_arg);
+void schedule(std::function<void(std::string, double)> func, const std::chrono::seconds duration, std::string text, double value);
