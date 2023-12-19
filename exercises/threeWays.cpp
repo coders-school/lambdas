@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-// use STL algorithm to check if all elements are divisible by 3
+//  use STL algorithm to check if all elements are divisible by 3
 // implement 3 versions:
 // * lambda
 // * functor
