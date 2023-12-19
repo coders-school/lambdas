@@ -11,5 +11,23 @@
 int main() {
     std::vector numbers = {18, 21, 36, 90, 27, 14, 103};
 
+    bool allDividedByThree = false;
+  
+    auto lambda = [] (int i) {return i%3;};
+    allDividedByThree = std::all_of(numbers.begin(), numbers.end(), lambda);
+    std::cout<<"Lambda: "<<allDividedByThree<<std::endl;
+
+
+    allDividedByThree=std::all_of(numbers.begin(), numbers.end(), allDividedByThreeFunc);
+    std::cout<<"Function: "<<allDividedByThree<<std::endl;
+
+
+    struct AllDividedByThree {
+        bool operator()(int i) {
+            return i%3;
+        }
+    };
+    allDividedByThree=std::all_of(numbers.begin(), numbers.end(), AllDividedByThree{});
+    std::cout<<"Functor: "<<allDividedByThree<<std::endl;
     return 0;
 }
