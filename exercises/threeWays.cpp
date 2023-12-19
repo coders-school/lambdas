@@ -8,12 +8,12 @@
 // * functor
 // * function
 bool allDividedByThreeFunc(int i){
-    return i%3;
+    return i%3==0;
 }
 
 struct AllDividedByThree {
     bool operator()(int i) {
-        return i%3;
+        return i%3==0;
     }
 };
 int main() {
@@ -21,7 +21,7 @@ int main() {
 
     bool allDividedByThree = false;
   
-    auto lambda = [] (int i) {return i%3;};
+    auto lambda = [] (int i) {return i%3==0;};
     allDividedByThree = std::all_of(numbers.begin(), numbers.end(), lambda);
     std::cout<<"Lambda: "<<allDividedByThree<<std::endl;
 
