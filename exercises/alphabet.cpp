@@ -6,7 +6,19 @@
 #include <iostream>
 
 int main() {
-
+    
+    auto alphabet=[temp{'a'}, end{'z'}, end_up{'Z'}]()mutable{
+      if (temp==end){
+        temp='A'; 
+        return end;
+      }
+      else if (temp==end_up){
+        temp='a';
+        return end_up;
+      }
+      else
+        return temp++;};
+    
     for (int i = 0; i < 100; ++i) {
         // std::cout << alphabet();
     }
