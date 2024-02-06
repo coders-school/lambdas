@@ -17,7 +17,7 @@ void schedule(std::function<void(int)> func, std::chrono::seconds duration, int 
 }
 
 void schedule(std::function<void(std::string, double)> func, std::chrono::seconds duration, std::string str, double val) {
-    auto start =  std::chrono::steady_clock::now();
+    auto start = std::chrono::steady_clock::now();
 
     while (std::chrono::steady_clock::now() - start < duration)
         ;
