@@ -12,9 +12,9 @@ void schedule(T func, std::chrono::seconds duration, Args... args);
 
 template <typename T, typename... Args>
 void schedule(T func, std::chrono::seconds duration, Args... args) {
-  auto start = std::chrono::steady_clock::now();
+    auto start = std::chrono::steady_clock::now();
 
-  while (std::chrono::steady_clock::now() - start < duration)
-    ;
-  std::invoke(func, args...);
+    while (std::chrono::steady_clock::now() - start < duration)
+        ;
+    std::invoke(func, args...);
 }
